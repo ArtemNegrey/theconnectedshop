@@ -63,6 +63,8 @@ test ('contact form success', async ({page})=>{
 
     await expect (page.locator('[aria-label="Your message"]')).toHaveValue('test');
 
+    await expect (page.locator('button:text("Send message")')).toBeEnabled(); // перевірка на те що кнопка Відправити - активна.
+
     await page.locator('button:text("Send message")').click();
 
     await expect (page.locator(confirmationAlert)).toBeVisible(); // потрібно пофіксити проблему з капчею
